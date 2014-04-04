@@ -1,28 +1,20 @@
-== README
+Magical History Tour (GA WDI NYC Jan 14, Project 3)
+Quick Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Magical History Tour (MHT) is a web application that allows users to customize tours by selecting Points of Interest.  
 
-Things you may want to cover:
+The application uses Ruby on Rails as the framework and Backbone.js for the front end. 
+Additionally, MHT uses the following APIs and Gems:
 
-* Ruby version
+API: Google Maps and Directions (https://developers.google.com/maps/documentation/javascript/tutorial)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+GEM: Geocoder (http://www.rubygeocoder.com/)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+User Stories
+
+User Stories can be found at Pivotal Tracker: https://www.pivotaltracker.com/s/projects/1053564
+
+Heroku Link
+
+[To Be Added]
