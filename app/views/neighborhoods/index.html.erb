@@ -1,0 +1,12 @@
+<h1>The Magical History Tour</h1>
+
+<p>
+Please select the Neighborhood you'd like to take your tour in.
+</p>
+
+
+
+<%@neighborhoods.each do |n|%>
+<%=link_to n.name, neighborhood_path(n.id)%>
+<% end %>
+

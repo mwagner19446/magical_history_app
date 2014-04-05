@@ -1,0 +1,7 @@
+<h1><%=@neighborhood.name%>: Sights to See</h1>
+
+
+<% @places.each do |place| %>
+  <input type=checkbox>
+  <%=place.name%> <br \>
+<% end %>
