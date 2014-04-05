@@ -11,16 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403174440) do
+ActiveRecord::Schema.define(version: 20140405152813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "places", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
+  create_table "neighborhoods", force: true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.text     "description"
+    t.text     "address"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "places", ["neighborhood_id"], name: "index_places_on_neighborhood_id", using: :btree
 
 end
