@@ -7,6 +7,10 @@ body {
   padding: 0 
 }
 
+#tour-header{
+  text-align: center; 
+}
+
 #tour-container{
   height: 100% 
 }
@@ -14,10 +18,16 @@ body {
 #map-canvas{
   display: inline-block;
   height: 100%; 
-  width: 50%;
+  width: 70%;
 }
 
 #places{
   vertical-align: top; 
   display: inline-block;
+}
+
+#tour-longitude{  
+}
+
+#tour-latitude{
 }

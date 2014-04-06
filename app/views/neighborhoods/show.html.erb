@@ -1,10 +1,9 @@
-<h1><%=@neighborhood.name%>: Sights to See</h1>
+<h1 id="tour-header"><%=@neighborhood.name%>: Sights to See</h1> <br \>
 
 
 <div id="tour-container">
 
   <div id="map-canvas">
-  PLACEHOLDER
   </div>
 
   <div id="places">
@@ -15,4 +14,7 @@
   </div>
 
 </div>
+
+<div id="tour-latitude"><%=@neighborhood.latitude%></div>  
+<div id="tour-longitude"><%=@neighborhood.longitude%></div>
   
