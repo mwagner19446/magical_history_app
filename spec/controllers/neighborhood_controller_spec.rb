@@ -8,10 +8,11 @@ describe NeighborhoodsController do
   let(:place_2) {FactoryGirl.create(:place, :neighborhood => neighborhood_1)}
   let(:place_3) {FactoryGirl.create(:place, :neighborhood => neighborhood_2)}
 
-  describe "GET #index" do 
+  describe "GET index" do 
     it "has a 200 status code" do 
       get :index
       expect(response.status).to eq(200)
+
     end 
     it "has all neighborhoods"do 
       neighborhood_0
@@ -22,10 +23,11 @@ describe NeighborhoodsController do
   end 
 
 
-  describe "GET #show/:id" do 
+  describe "GET show/:id" do 
     it "has a 200 status code"do 
       get :show, id: neighborhood_0.id
       expect(response.status).to eq(200)
+
     end 
 
     it "displays all the places"do
