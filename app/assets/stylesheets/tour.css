@@ -26,10 +26,33 @@ body {
   display: inline-block;
 }
 
-#start{
+
+label {
+  float:left;
+  width: 100px;
 }
 
-#destination{
+form input {
+    width: 175px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:1px solid #CCC;
+}
+
+#start {
+}
+
+#destination {
+ 
+}
+
+.waypoints{
+
+}
+
+.pipe{
+  color: white; 
 }
 
 #tour-longitude{  

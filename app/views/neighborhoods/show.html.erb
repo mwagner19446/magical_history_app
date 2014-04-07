@@ -8,12 +8,13 @@
 
   <div id="places">
     <form id ="start">
-      Start: <input type="text" name="start" <br>
+    <label>Start: </label><input type="text" name="start"></input>
     </form>    
 
     <form id ="destination">
-      Destination: <input type="text" name="destination" >
+    <label>Destination: </label><input type="text" name="destination"></input>
     </form>
+    <br />
 
     <% @places.each do |place| %>
       <div class="waypoints">
