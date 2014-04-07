@@ -7,14 +7,29 @@
   </div>
 
   <div id="places">
+    <form id ="start">
+      Start: <input type="text" name="start" <br>
+    </form>    
+
+    <form id ="destination">
+      Destination: <input type="text" name="destination" >
+    </form>
+
     <% @places.each do |place| %>
-      <input type=checkbox>
-      <%=place.name%> <br \>
+      <div class="waypoints">
+        <input type=checkbox>
+        <%=place.name%> 
+        <div class = "pipe">|</div>
+      </div>
     <% end %>
   </div>
 
 </div>
 
+
+
+
 <div id="tour-latitude"><%=@neighborhood.latitude%></div>  
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
   
+<!-- <%=@places[1].name%> NYC -->
