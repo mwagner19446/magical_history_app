@@ -1,11 +1,14 @@
+//Provides the Screen Hover Interaction.
 $(".waypoints-header").tooltip(); 
 
 
+//Variables that are manipulated by the initialize and calcRoute functions.   
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
-var request = {}
 
 
+//initialize():  Creates and centers the initial map
+//var lon and var lat center the map on the geographic center of the neighborhood.  These values are stored in the DB. 
 function initialize(){
   var lon = parseFloat($("#tour-longitude").html())
   var lat = parseFloat($("#tour-latitude").html())
@@ -15,83 +18,43 @@ function initialize(){
     center: myLatLng,
     zoom: 15
   }; 
-
   var map = new google.maps.Map($("#map-canvas")[0],
       mapOptions);
   directionsDisplay.setMap(map);  
-
 }   
 
-//Moving Away from this: 
-// function getWaypoints(){
-//   x = []
-//   locations = $("input:checked").parent().text()
-//   locationsArray = locations.split("|")
-//   for (var i= 0; i<locationsArray.length; i++ ){
-//     x.push({
-//       location: locationsArray[i]
-//     });
-//   }
-//   // locationsArray.forEach(function(z){
-//   //   x.push({location: z})
-//   // });
-//   return x
-// }
 
+//calcRoute():  Sends a Directions Request to Google API
+//the waypoints are determined each time the function is called using jQuery.  
 function calcRoute() {
-  lon = parseFloat($("#tour-longitude").html())
-  lat = parseFloat($("#tour-latitude").html())
-  myLatLng = new google.maps.LatLng(lat,lon)
-  waypts = []
+  var lon = parseFloat($("#tour-longitude").html())
+  var lat = parseFloat($("#tour-latitude").html())
+  var myLatLng = new google.maps.LatLng(lat,lon)
+  var waypts = []
 
-  // Step 1:  Capture the LongLat
-  // Step 2:  Add the Google Longlat Object to the Waypoints hash. 
-
-  locations = $("input:checked").parent().text()
+  var locations = $("input:checked").parent().text()
+  
   if(locations != ""){
-    locationsArray = locations.split("|")  
-    newLocationsArray = $.map(locationsArray, function(v){
+    var locationsArray = locations.split("|")  
+    var newLocationsArray = $.map(locationsArray, function(v){
       return v.trim() === "" ? null : v.trim(); 
     })
 
     newLocationsArray.forEach(function(z){
-      xlon = z.match(/Longitude:(.*)/)
-      xlat = z.match(/Latitude:(.*)/)
+      var xlon = z.match(/Longitude:(.*)/)
+      var xlat = z.match(/Latitude:(.*)/)
+      var zlon = parseFloat(xlon[1].trim())
+      var zlat = parseFloat(xlat[1].trim())      
 
-      zlon = parseFloat(xlon[1].trim())
-      zlat = parseFloat(xlat[1].trim())
-      
-      zloc = zlat +" , "+zlon
-      // parseFloat(xlon.trim())
+      var zloc = zlat +" , "+zlon
       waypts.push({location: zloc})
-      // waypts.push({location: zlat, zlon})
-      // waypts.push({location: z.trim()+ " NYC"})
     });
   }
 
-    
-    
   request = {
     origin: $("input[name='start']").val() || myLatLng,
     destination: $("input[name='destination']").val() || myLatLng,
     waypoints: waypts, 
-
-
-
-
-    // [
-    //     {location: "Gracie Mansion"}, 
-    //     {location: "Frick Collection"}, 
-    //     {location: "Neue Gallerie"}, 
-    //     {location: "John Jay Park"}
-    //   ], 
-
-    // [
-    //   {location: new google.maps.LatLng(40.76964,-73.961886)}, 
-    //   {location: new google.maps.LatLng(40.7813,-73.9603)}, 
-    // ],
-
-
     optimizeWaypoints: true,  
     travelMode: google.maps.TravelMode.WALKING 
   };
@@ -103,8 +66,7 @@ function calcRoute() {
   });    
 };
 
-
-
+// Event Listeners that Modify the Screen DOM. 
 $(document).ready(function() {
   initialize();  
   google.maps.event.addDomListener(window, 'load', initialize); 
@@ -124,9 +86,4 @@ $(document).ready(function() {
     calcRoute()
   });
 
-
 }); 
-
-
-
-
