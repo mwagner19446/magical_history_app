@@ -15,22 +15,25 @@
     <label>Destination: </label><input type="text" name="destination"></input>
     </form>
     <br />
-
-    <% @places.each do |place| %>
-      <div class="waypoints">
-        <input type=checkbox>
-        <%=place.name%> 
-        <div class = "pipe">|</div>
-      </div>
-    <% end %>
+    
+    <div class="waypoints">
+      <% @places.each do |place| %>  
+        <div class="waypoints-header" title="<%=place.description%>">
+          <input type=checkbox> <%=place.name%> 
+          <div class = "longitude">Longitude: <%=place.longitude%> </div>
+          <div class = "latitude">Latitude: <%=place.latitude%> </div>
+          <div class = "pipe">|</div>
+        </div>
+      <% end %>
+    </div>
+    
+    
   </div>
 
 </div>
 
 
 
-
 <div id="tour-latitude"><%=@neighborhood.latitude%></div>  
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
   
-<!-- <%=@places[1].name%> NYC -->

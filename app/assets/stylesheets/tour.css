@@ -18,7 +18,7 @@ body {
 #map-canvas{
   display: inline-block;
   height: 100%; 
-  width: 70%;
+  width: 60%;
 }
 
 #places{
@@ -48,7 +48,15 @@ form input {
 }
 
 .waypoints{
+  width: 320px;
+}
 
+.waypoints-header{
+  width: 320px;
+}
+
+.waypoints-body{
+  width: 320px;
 }
 
 .pipe{
