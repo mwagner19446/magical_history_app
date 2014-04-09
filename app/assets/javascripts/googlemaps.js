@@ -1,7 +1,24 @@
-//Provides the Screen Hover Interaction.
-$(".waypoints-header").tooltip(); 
+//Renders the Tab Structure
+$(function(){
+  $("#tabs").tabs(); 
+});
 
 
+//Renders the Screen Hover Interaction.
+$(function(){
+  $(".waypoints-header").tooltip({
+    position: {
+      my: "center", 
+      at: "left-200px" 
+    },
+    show: {
+      effect: "slideDown",
+      delay: 1
+    }
+  });
+});
+
+ 
 //Variables that are manipulated by the initialize and calcRoute functions.   
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -20,7 +37,8 @@ function initialize(){
   }; 
   var map = new google.maps.Map($("#map-canvas")[0],
       mapOptions);
-  directionsDisplay.setMap(map);  
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById("directions-panel"));  
 }   
 
 
@@ -87,3 +105,7 @@ $(document).ready(function() {
   });
 
 }); 
+
+
+// document.getElementsByClassName('waypoints-header')[0].title.replace(/\/n/g, "<br />")
+

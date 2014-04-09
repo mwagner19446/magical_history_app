@@ -6,28 +6,41 @@
   <div id="map-canvas">
   </div>
 
-  <div id="places">
-    <form id ="start">
-    <label>Start: </label><input type="text" name="start"></input>
-    </form>    
-
-    <form id ="destination">
-    <label>Destination: </label><input type="text" name="destination"></input>
-    </form>
-    <br />
+  <div id="tabs">
+    <ul>
+      <li><a href="#waypoints">Sights</a></li> 
+      <li><a href="#directions-panel">Directions</a></li>
+  
+    </ul>
     
-    <div class="waypoints">
+
+    <div id="directions-panel">
+      Select Points to get Directions
+    </div>  
+       
+    <div id="waypoints">    
+      <div id="places">
+        <form id ="start">
+        <label>Start: </label><input type="text" name="start"></input>
+        </form>    
+
+        <form id ="destination">
+        <label>Destination: </label><input type="text" name="destination"></input>
+        </form>
+        <br \>
+      </div> 
+
       <% @places.each do |place| %>  
         <div class="waypoints-header" title="<%=place.description%>">
           <input type=checkbox> <%=place.name%> 
+          <div class = "address"><%=place.address%></div>
           <div class = "longitude">Longitude: <%=place.longitude%> </div>
           <div class = "latitude">Latitude: <%=place.latitude%> </div>
           <div class = "pipe">|</div>
         </div>
       <% end %>
     </div>
-    
-    
+      
   </div>
 
 </div>
@@ -36,4 +49,3 @@
 
 <div id="tour-latitude"><%=@neighborhood.latitude%></div>  
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
-  
