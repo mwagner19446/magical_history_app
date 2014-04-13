@@ -1,12 +1,25 @@
-<h1>The Magical History Tour</h1>
 
-<p>
-Please select the Neighborhood you'd like to take your tour in.
-</p>
+<h1 id="homepage-title">The Magical History Tour</h1>
+
+<div id="button-container">
+  <button id="neighborhood-button">Please select the Neighborhood you'd like to take your tour in.</button>
+</div>  
+
+
+<section id="neighborhood-list">
+  <%@neighborhoods.each do |n|%>
+  <%=link_to_if n.name=="Upper East Side", n.name, neighborhood_path(n.id)%> 
+  <br \>
+  <% end %>
+</section>
 
 
 
-<%@neighborhoods.each do |n|%>
-<%=link_to n.name, neighborhood_path(n.id)%>
-<% end %>
+
+<script>
+  $("#neighborhood-button").click(function()
+    {
+      $("#neighborhood-list").slideToggle('slow');
+    });
+</script>
 

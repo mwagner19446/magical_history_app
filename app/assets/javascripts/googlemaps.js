@@ -1,27 +1,7 @@
-//Renders the Tab Structure
-$(function(){
-  $("#tabs").tabs(); 
-});
-
-
-//Renders the Screen Hover Interaction.
-$(function(){
-  $(".waypoints-header").tooltip({
-    position: {
-      my: "center", 
-      at: "left-200px" 
-    },
-    show: {
-      effect: "slideDown",
-      delay: 1
-    }
-  });
-});
-
- 
 //Variables that are manipulated by the initialize and calcRoute functions.   
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
+
 
 
 //initialize():  Creates and centers the initial map
@@ -40,7 +20,6 @@ function initialize(){
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById("directions-panel"));  
 }   
-
 
 //calcRoute():  Sends a Directions Request to Google API
 //the waypoints are determined each time the function is called using jQuery.  
@@ -84,6 +63,28 @@ function calcRoute() {
   });    
 };
 
+
+//Renders the Tab Structure
+$(function(){
+  $("#tabs").tabs(); 
+});
+
+
+//Renders the Screen Hover Interaction.
+$(function(){
+  $(".waypoints-header").tooltip({
+    position: {
+      my: "center", 
+      at: "bottom", 
+      of: "#waypoints"
+    },
+    show: {
+      effect: "slideDown",
+      delay: 1
+    }, 
+  });
+});
+
 // Event Listeners that Modify the Screen DOM. 
 $(document).ready(function() {
   initialize();  
@@ -100,12 +101,8 @@ $(document).ready(function() {
   });
 
   $("input[type='checkbox']").bind("click", function(e){
-    console.log( "This Works" )
     calcRoute()
   });
 
 }); 
-
-
-// document.getElementsByClassName('waypoints-header')[0].title.replace(/\/n/g, "<br />")
 

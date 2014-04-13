@@ -1,0 +1,16 @@
+#homepage-title{
+  text-align: center; 
+}
+
+#button-container{
+  text-align: center; 
+}
+
+#neighborhood-button{
+  width:300px;
+}
+
+#neighborhood-list {
+  text-align: center;
+  display: none;
+}

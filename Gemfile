@@ -36,6 +36,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Use HTTParty to connect with Google Maps
+gem 'httparty'
+
 # Testing Suite
 group :development, :test do
   gem 'jasmine'
@@ -46,6 +49,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'ffaker'
+  gem 'sinon-rails'
 end
 
 # Use ActiveModel has_secure_password
