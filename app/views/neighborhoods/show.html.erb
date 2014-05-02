@@ -46,6 +46,25 @@
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
 
 <script>
+  function tab(){
+    $("#tabs").tabs(); 
+  };
+
+  //Renders the Screen Hover Interaction.
+  function tooltip(){
+    $(".waypoints-header").tooltip({
+      position: {
+        my: "center", 
+        at: "bottom", 
+        of: "#waypoints"
+      },
+      show: {
+        effect: "slideDown",
+        delay: 1
+      }, 
+    });
+  };
+
   initialize();
   tab();
   tooltip();
