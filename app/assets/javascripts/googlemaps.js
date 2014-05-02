@@ -1,3 +1,22 @@
+var tab = function(){
+      $("#tabs").tabs(); 
+};
+
+//Renders the Screen Hover Interaction.
+var tooltip = function(){
+  $(".waypoints-header").tooltip({
+    position: {
+      my: "center", 
+      at: "bottom", 
+      of: "#waypoints"
+    },
+    show: {
+      effect: "slideDown",
+      delay: 1
+    }, 
+  });
+};
+
 //Variables that are manipulated by the initialize and calcRoute functions.   
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -110,6 +129,26 @@ $(document).ready(function(){
   $("input[type='checkbox']").bind("click", function(e){
     calcRoute()
   });
+
+  $(function(){
+      $("#tabs").tabs(); 
+    });
+
+  //Renders the Screen Hover Interaction.
+  $(function(){
+    $(".waypoints-header").tooltip({
+      position: {
+        my: "center", 
+        at: "bottom", 
+        of: "#waypoints"
+      },
+      show: {
+        effect: "slideDown",
+        delay: 1
+      }, 
+    });
+});
+
 
 }); 
 
