@@ -1,9 +1,9 @@
-var tab = function(){
-      $("#tabs").tabs(); 
+function tab(){
+  $("#tabs").tabs(); 
 };
 
 //Renders the Screen Hover Interaction.
-var tooltip = function(){
+function tooltip(){
   $(".waypoints-header").tooltip({
     position: {
       my: "center", 

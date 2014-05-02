@@ -46,10 +46,10 @@
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
 
 <script>
+  initialize();
   tab();
   tooltip();
-  initialize();
-
+  
   $("#start").bind("submit", function(e){
     e.preventDefault(); 
     calcRoute()
