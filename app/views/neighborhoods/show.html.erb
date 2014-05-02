@@ -48,3 +48,41 @@
 
 <div id="tour-latitude"><%=@neighborhood.latitude%></div>  
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
+
+<script>
+    initialize();
+    $("#start").bind("submit", function(e){
+      e.preventDefault(); 
+      calcRoute()
+    });
+
+    $("#destination").bind("submit", function(e){
+      e.preventDefault(); 
+      calcRoute()
+    });
+
+    $("input[type='checkbox']").bind("click", function(e){
+      calcRoute()
+    });
+    $(function(){
+      $("#tabs").tabs(); 
+    });
+    //Renders the Screen Hover Interaction.
+    $(function(){
+      $(".waypoints-header").tooltip({
+        position: {
+          my: "center", 
+          at: "bottom", 
+          of: "#waypoints"
+        },
+        show: {
+          effect: "slideDown",
+          delay: 1
+        }, 
+      });
+    });
+    
+</script>
+
+
+

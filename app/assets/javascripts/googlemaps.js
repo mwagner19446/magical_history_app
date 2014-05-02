@@ -20,6 +20,8 @@ function initialize(){
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById("directions-panel"));  
 }   
+window.addEventListener("load",initialize,false)
+
 
 //calcRoute():  Sends a Directions Request to Google API
 //the waypoints are determined each time the function is called using jQuery.  
@@ -85,10 +87,15 @@ $(function(){
   });
 });
 
+
+
+google.maps.event.addDomListener(window, 'load', initialize); 
+
+
 // Event Listeners that Modify the Screen DOM. 
-$(document).ready(function() {
+$(document).ready(function(){
+// $(window).load(function(){
   initialize();  
-  google.maps.event.addDomListener(window, 'load', initialize); 
 
   $("#start").bind("submit", function(e){
     e.preventDefault(); 
