@@ -21,8 +21,6 @@ var tooltip = function(){
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
-
-
 //initialize():  Creates and centers the initial map
 //var lon and var lat center the map on the geographic center of the neighborhood.  These values are stored in the DB. 
 function initialize(){

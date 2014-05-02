@@ -42,15 +42,12 @@
 
 </div>
 
-
-
 <div id="tour-latitude"><%=@neighborhood.latitude%></div>  
 <div id="tour-longitude"><%=@neighborhood.longitude%></div>
 
 <script>
   tab();
   tooltip();
-
   initialize();
 
   $("#start").bind("submit", function(e){
