@@ -9,6 +9,8 @@ body {
 
 #tour-header{
   text-align: center; 
+  font-family: 'Oleo Script Swash Caps', cursive;
+  background-image: 'BarkStripped0010_2_L.jpg';
 }
 
 #tour-container{
